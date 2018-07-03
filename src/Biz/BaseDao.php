@@ -11,7 +11,7 @@ abstract class BaseDao
         $this->ci = $ci;
     }
 
-    public abstract function createQueryBuilder($conditions, $statement);
+    public abstract function buildQueryStatement($conditions, $statement);
 
     public function getTable()
     {
@@ -77,7 +77,7 @@ abstract class BaseDao
                      ->from($this->getTable());
 
         if (!empty($conditions)) {
-            $stmt = $this->createQueryBuilder($conditions, $stmt);
+            $stmt = $this->buildQueryStatement($conditions, $stmt);
         }
 
         $stmt = $stmt->limit($limit, $start);
@@ -96,7 +96,7 @@ abstract class BaseDao
                      ->from($this->getTable());
 
         if (!empty($conditions)) {
-            $stmt = $this->createQueryBuilder($conditions, $stmt);
+            $stmt = $this->buildQueryStatement($conditions, $stmt);
         }
 
         return $stmt->execute()->fetch()['total'];
