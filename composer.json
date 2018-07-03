@@ -1,0 +1,26 @@
+{
+    "name": "zhangchen/douban-wechat-server",
+    "description": "douban-wechat-server",
+    "authors": [
+        {
+            "name": "zhangchen",
+            "email": "zc19940702@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/pdo": "~1.10",
+        "monolog/monolog": "^1.23"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
