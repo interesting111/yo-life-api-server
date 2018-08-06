@@ -1,2 +1,1 @@
-### 基于PHP Slim框架写的一个微信小程序后台服务
-这是一个自己基于slim框架写的一个后台服务，目的是为了提供api给自己将要开发的微信小程序。包含了路由的定义、Controller、Service以及Dao。后期如果新的想法会持续更新。
+### To Be Continued
