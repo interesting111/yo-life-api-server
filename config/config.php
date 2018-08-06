@@ -1,13 +1,16 @@
 <?php
 
-$config = array(
+$config = [
     'displayErrorDetails' => true,
-    'db' => array(
-        'host' => 'localhost',
+    'db' => [
+        'driver' => 'pdo_mysql',
+        'host' => '127.0.0.1',
+        'port' => 3306,
         'user' => 'root',
         'password' => '',
-        'db_name' => 'douban_dev',
-    ),
-);
+        'db_name' => 'cost_dev',
+    ],
+    'rootDir' => APP_ROOT,
+];
 
 return $config;

@@ -7,12 +7,20 @@ namespace Composer\Autoload;
 class ComposerStaticInit51a3c014a7f0c8a455fab77786a096be
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'Zend\\EventManager\\' => 18,
+            'Zend\\Code\\' => 10,
+        ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Console\\' => 26,
             'Slim\\PDO\\' => 9,
             'Slim\\' => 5,
         ),
@@ -21,6 +29,7 @@ class ComposerStaticInit51a3c014a7f0c8a455fab77786a096be
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+            'PackageVersions\\' => 16,
         ),
         'M' => 
         array (
@@ -34,9 +43,32 @@ class ComposerStaticInit51a3c014a7f0c8a455fab77786a096be
         array (
             'FastRoute\\' => 10,
         ),
+        'D' => 
+        array (
+            'Doctrine\\Migrations\\' => 20,
+            'Doctrine\\DBAL\\Migrations\\' => 25,
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\' => 16,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Zend\\EventManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-eventmanager/src',
+        ),
+        'Zend\\Code\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-code/src',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\Console\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/console',
+        ),
         'Slim\\PDO\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/pdo/src/PDO',
@@ -57,6 +89,10 @@ class ComposerStaticInit51a3c014a7f0c8a455fab77786a096be
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'PackageVersions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -69,6 +105,22 @@ class ComposerStaticInit51a3c014a7f0c8a455fab77786a096be
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
+        'Doctrine\\Migrations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations',
+        ),
+        'Doctrine\\DBAL\\Migrations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/DBAL/Migrations',
+        ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
+        ),
     );
 
     public static $fallbackDirsPsr4 = array (
@@ -78,9 +130,20 @@ class ComposerStaticInit51a3c014a7f0c8a455fab77786a096be
     public static $prefixesPsr0 = array (
         'P' => 
         array (
+            'ProxyManager\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
+            ),
             'Pimple' => 
             array (
                 0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
+        ),
+        'D' => 
+        array (
+            'Doctrine\\DBAL\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/dbal/lib',
             ),
         ),
     );

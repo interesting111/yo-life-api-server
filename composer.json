@@ -15,7 +15,8 @@
     "require": {
         "slim/slim": "^3.0",
         "slim/pdo": "~1.10",
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23",
+        "doctrine/migrations": "^1.8"
     },
     "repositories": {
         "packagist": {
