@@ -8,7 +8,7 @@ $config = [
         'port' => 3306,
         'user' => 'root',
         'password' => '',
-        'db_name' => 'cost_dev',
+        'db_name' => 'yolife_dev',
     ],
     'rootDir' => APP_ROOT,
 ];
