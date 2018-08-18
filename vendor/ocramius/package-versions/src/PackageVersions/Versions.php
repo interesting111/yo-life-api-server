@@ -17,6 +17,9 @@ final class Versions
   'doctrine/dbal' => 'v2.8.0@5140a64c08b4b607b9bedaae0cedd26f04a0e621',
   'doctrine/event-manager' => 'v1.0.0@a520bc093a0170feeb6b14e9d83f3a14452e64b3',
   'doctrine/migrations' => 'v1.8.1@215438c0eef3e5f9b7da7d09c6b90756071b43e6',
+  'guzzlehttp/guzzle' => '6.3.3@407b0cb880ace85c9b63c5f9551db498cb2d50ba',
+  'guzzlehttp/promises' => 'v1.3.1@a59da6cf61d80060647ff4d3eb2c03a2bc694646',
+  'guzzlehttp/psr7' => '1.4.2@f5b8a8512e2b58b0071a7280e39f14f72e05d87c',
   'monolog/monolog' => '1.23.0@fd8c787753b3a2ad11bc60c063cff1358a32a3b4',
   'nikic/fast-route' => 'v1.3.0@181d480e08d9476e61381e04a71b34dc0432e812',
   'ocramius/package-versions' => '1.3.0@4489d5002c49d55576fa0ba786f42dbb009be46f',
@@ -31,7 +34,7 @@ final class Versions
   'symfony/polyfill-mbstring' => 'v1.8.0@3296adf6a6454a050679cde90f95350ad604b171',
   'zendframework/zend-code' => '3.3.0@6b1059db5b368db769e4392c6cb6cc139e56640d',
   'zendframework/zend-eventmanager' => '3.2.1@a5e2583a211f73604691586b8406ff7296a946dd',
-  'zhangchen/douban-wechat-server' => 'dev-master@365e6bbeec311b1d6c57002143805c2201002e76',
+  'zhangchen/douban-wechat-server' => 'dev-feature/api-login-api@072aca5e9029fbcf1c9a13cf90c3f53079641188',
 );
 
     private function __construct()

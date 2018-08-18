@@ -36,4 +36,14 @@ class BaseController
     {
         return $this->getAutoloader()->autoload('Dao', $alias);
     }
+
+    protected function getWeAppProvider()
+    {
+        return $this->ci['weapp_provider'];
+    }
+
+    protected function getGuzzleServiceProvider()
+    {
+        return $this->ci['guzzle_provider'];
+    }
 }

@@ -1,0 +1,22 @@
+<?php
+
+//cp config.php.dist to config.php
+
+define('APP_ROOT', dirname(__DIR__));
+
+$config = [
+    'displayErrorDetails' => true,
+    'db' => [
+        'driver' => 'PDO_DRIVER', //pdo_mysql
+        'host' => 'YOUR_HOST',
+        'port' => YOUT_PORT,
+        'user' => 'YOUR_DB_USER',
+        'password' => 'YOUR_DB_PW',
+        'db_name' => 'YOUR_DB_NAME',
+    ],
+    'rootDir' => APP_ROOT,
+    'app_id' => 'YOUR_APP_ID',
+    'app_secret' => 'YOUR_APP_SECRET',
+];
+
+return $config;
