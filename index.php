@@ -6,6 +6,8 @@ require './config/config.php';
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use \Component\ServiceAutoloader;
+use \Component\WeAppProvider;
+use \Component\GuzzleServiceProvider;
 
 $app = new \Slim\App(['settings' => $config]);
 
@@ -38,6 +40,14 @@ $container['logger'] = function($c) {
 $container['service_autoloader'] = function ($c) {
     return new ServiceAutoloader($c);
 };
+
+$container['weapp_provider'] = function ($c) {
+    return new WeAppProvider($c['app_id'], $c['app_secret']);
+};
+
+$container['guzzle_provider'] = function ($c) {
+    return new GuzzleServiceProvider($c);
+}
 
 require_once './routing.php';
 

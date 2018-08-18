@@ -3,7 +3,6 @@
 namespace Controller;
 
 use Controller\BaseController;
-use Service\Movie\Impl\MovieServiceImpl;
 
 class MovieController extends BaseController
 {
