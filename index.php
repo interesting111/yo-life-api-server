@@ -42,12 +42,20 @@ $container['service_autoloader'] = function ($c) {
 };
 
 $container['weapp_provider'] = function ($c) {
-    return new WeAppProvider($c['app_id'], $c['app_secret']);
+    return new WeAppProvider($c['settings']['app_id'], $c['settings']['app_secret']);
 };
 
 $container['guzzle_provider'] = function ($c) {
     return new GuzzleServiceProvider($c);
-}
+};
+
+$container['redis'] = function ($c) {
+    $redis = new \Redis();
+
+    $redis->connect($c['settings']['redis']['host'], $c['settings']['redis']['port']);
+
+    return $redis;
+};
 
 require_once './routing.php';
 

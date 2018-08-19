@@ -24,9 +24,7 @@ class GuzzleServiceProvider
         try {
             switch ($method) {
                 case 'GET':
-                    $this->get($url, $args, $headers);
-                break;
-                default:
+                    return $this->get($url, $args, $headers);
                 break;
             }
         } catch (ClientException $e) {
@@ -62,7 +60,7 @@ class GuzzleServiceProvider
 
         return [
             'code' => $response->getStatusCode(),
-            'body' => $response->getBody(),
+            'body' => json_decode($response->getBody()->getContents(), true),
         ];
     }
 

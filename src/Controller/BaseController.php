@@ -22,7 +22,14 @@ class BaseController
     {
         return array(
             'code' => 200,
-            'msg' => 'success',
+            'data' => $data,
+        );
+    }
+
+    protected function createFailResponse($data, $code = 500)
+    {
+        return array(
+            'code' => $code,
             'data' => $data,
         );
     }
@@ -45,5 +52,10 @@ class BaseController
     protected function getGuzzleServiceProvider()
     {
         return $this->ci['guzzle_provider'];
+    }
+
+    protected function getRedis()
+    {
+        return $this->ci['redis'];
     }
 }
