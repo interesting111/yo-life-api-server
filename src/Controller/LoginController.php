@@ -16,7 +16,7 @@ class LoginController extends BaseController
 
         $thirdSessionKey = $this->getWeAppProvider()->encryptSessionKey($result['body']['session_key'], $result['body']['openid']);
 
-        $this->getRedis()->set('third_sessionKey', $thirdSessionKey);
+        $this->getRedis()->set("third_sessionKey_{$result['body']['openid']}", $thirdSessionKey);
 
         return $response->withJson($this->createSuccessResponse([
             'thirdSessionKey' => $thirdSessionKey,

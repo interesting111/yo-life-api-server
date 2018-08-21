@@ -39,6 +39,10 @@ class WeAppProvider
 
     public function encryptSessionKey($sessionKey, $openId)
     {
+        if (empty($sessionKey) || empty($openId)) {
+            throw new \Exception('Invalid sessionKey or openId');
+        }
+
         $find = array('+', '/', '=');
         $replace = array('-', '_', '');
 
