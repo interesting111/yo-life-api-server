@@ -14,12 +14,12 @@ class LoginController extends BaseController
 
         $result = $this->getGuzzleServiceProvider()->request('GET', $loginAuthUrl);
 
-        $thirdSessionKey = $this->getWeAppProvider()->encryptSessionKey($result['body']['session_key'], $result['body']['openid']);
+        $this->getRedis()->set("third_openid_{$result['body']['openid']}", $result['body']['session_key']);
 
-        $this->getRedis()->set("third_sessionKey_{$result['body']['openid']}", $thirdSessionKey);
+        $thirdOpenId = $this->getWeAppProvider()->encryptOpenId($result['body']['openid']);
 
         return $response->withJson($this->createSuccessResponse([
-            'thirdSessionKey' => $thirdSessionKey,
+            'thirdOpenId' => $thirdOpenId,
         ]));
     }
 }
