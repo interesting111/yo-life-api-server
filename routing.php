@@ -5,6 +5,9 @@ $app->get('/movie', '\Controller\MovieController:list');
 $app->get('/movie/{id}', '\Controller\MovieController:get');
 
 $app->get('/login', '\Controller\LoginController:index')->setName('login');
+
+$app->post('/bind', '\Controller\LoginController:bind')->setName('bind');
+
 //example
 // $app->post('/movie', '\Controller\MovieController:create');
 
