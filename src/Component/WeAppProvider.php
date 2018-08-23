@@ -75,44 +75,43 @@ class WeAppProvider
 
     /**
      * 该方法由微信提供，进行了修改
-	 * 检验数据的真实性，并且获取解密后的明文.
-	 * @param $encryptedData string 加密的用户数据
-	 * @param $iv string 与用户数据一同返回的初始向量
-	 * @param $data string 解密后的原文
+     * 检验数据的真实性，并且获取解密后的明文.
+     * @param $encryptedData string 加密的用户数据
+     * @param $iv string 与用户数据一同返回的初始向量
+     * @param $data string 解密后的原文
      *
-	 * @return int 成功0，失败返回对应的错误码
-	 */
-	public function decryptData($encryptedData, $iv, &$data, $sessionKey)
-	{
-		if (strlen($sessionKey) != 24) {
-			return WeAppErrorCode::$illegalAesKey;
-		}
+     * @return int 成功0，失败返回对应的错误码
+     */
+    public function decryptData($encryptedData, $iv, &$data, $sessionKey)
+    {
+        if (strlen($sessionKey) != 24) {
+            return WeAppErrorCode::$illegalAesKey;
+        }
 
-		$aesKey = base64_decode($sessionKey);
+        $aesKey = base64_decode($sessionKey);
 
-        
-		if (strlen($iv) != 24) {
-			return WeAppErrorCode::$illegalIv;
-		}
+        if (strlen($iv) != 24) {
+            return WeAppErrorCode::$illegalIv;
+        }
 
-		$aesIV = base64_decode($iv);
+        $aesIV = base64_decode($iv);
 
-		$aesCipher = base64_decode($encryptedData);
+        $aesCipher = base64_decode($encryptedData);
 
-		$resul = openssl_decrypt($aesCipher, "AES-128-CBC", $aesKey, 1, $aesIV);
+        $resul = openssl_decrypt($aesCipher, "AES-128-CBC", $aesKey, 1, $aesIV);
 
-		$dataObj = json_decode($result);
+        $dataObj = json_decode($result);
 
-		if($dataObj == NULL) {
-			return WeAppErrorCode::$illegalBuffer;
-		}
+        if($dataObj == NULL) {
+            return WeAppErrorCode::$illegalBuffer;
+        }
 
-		if($dataObj->watermark->appid != $this->appId) {
-			return WeAppErrorCode::$illegalBuffer;
-		}
+        if($dataObj->watermark->appid != $this->appId) {
+            return WeAppErrorCode::$illegalBuffer;
+        }
 
-		$data = $result;
+        $data = $result;
 
-		return WeAppErrorCode::$ok;
-	}
+        return WeAppErrorCode::$ok;
+    }
 }
