@@ -16,10 +16,20 @@ class LoginController extends BaseController
 
         $this->getRedis()->set("third_openid_{$result['body']['openid']}", $result['body']['session_key']);
 
-        $thirdOpenId = $this->getWeAppProvider()->encryptOpenId($result['body']['openid']);
+        $thirdKey = $this->getWeAppProvider()->encryptOpenId($result['body']['openid']);
 
         return $response->withJson($this->createSuccessResponse([
-            'thirdOpenId' => $thirdOpenId,
+            'thirdKey' => $thirdKey,
         ]));
+    }
+
+    public function bind($request, $response, $args)
+    {
+        //to do refactor see bind_refactor.txt
+    }
+
+    protected function getUserSerivce()
+    {
+        return $this->createService('User:UserService');
     }
 }

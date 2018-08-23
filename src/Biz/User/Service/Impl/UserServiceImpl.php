@@ -16,9 +16,9 @@ class UserServiceImpl extends BaseService implements UserService
     {
         return $this->getUserDao()->delete($id);
     }
-    public function getUserByOpenId($openid)
+    public function getUserByOpenId($openId)
     {
-        return $this->getUserDao()->getByOpenId($openid);
+        return $this->getUserDao()->getByOpenId($openId);
     }
     public function getUser($id)
     {
@@ -45,4 +45,3 @@ class UserServiceImpl extends BaseService implements UserService
         return $this->createDao('User:UserDao');
     }
 }
-

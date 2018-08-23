@@ -9,13 +9,18 @@ class UserDaoImpl extends BaseDao implements UserDao
 {
     protected $table = 'user';
 
-    public function getByOpenId($openid)
+    public function getByOpenId($openId)
     {
-        $statement = $this->getPdo()
-        ->select()
-        ->from($this->getTable())
-        ->where('openid','=',$openid);
+        $stmt = $this->getPdo()
+                     ->select()
+                     ->from($this->getTable())
+                     ->where('openId', '=', $openId);
 
-        return $statement->execute()->fetch();
+        return $stmt->execute()->fetch();
+    }
+
+    public function buildQueryStatement($conditions, $statement)
+    {
+        return $statement;
     }
 }

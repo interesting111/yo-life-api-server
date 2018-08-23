@@ -10,7 +10,7 @@ interface UserService
 
     public function getUser($id);
 
-    public function getUserByOpenId($openid);
+    public function getUserByOpenId($openId);
 
     public function searchUsers($conditions, $orderBy, $start, $limit);
 
