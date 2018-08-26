@@ -281,4 +281,20 @@ class ArrayToolkit
 
         return $array;
     }
+
+    public static function same(array $needCompared, array $compared)
+    {
+        if (!is_array($needCompared)) {
+            throw new \Exception('needCompared type error');
+        }
+
+        if (!is_array($compared)) {
+            throw new \Exception('compared type error');
+        }
+
+        return (
+            count($needCompared) == count($compared)
+            && array_diff($needCompared, $compared) === array_diff($compared, $needCompared)
+        );
+    }
 }

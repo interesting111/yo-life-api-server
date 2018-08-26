@@ -70,7 +70,9 @@ class WeAppProvider
 
         $str = base64_decode($encryptedStr);
 
-        return explode('|', $str);
+        $decryptArr = explode('|', $str);
+
+        return $decryptArr[0];
     }
 
     /**
@@ -85,13 +87,13 @@ class WeAppProvider
     public function decryptData($encryptedData, $iv, &$data, $sessionKey)
     {
         if (strlen($sessionKey) != 24) {
-            return WeAppErrorCode::$illegalAesKey;
+            return WeAppErrorCode::ILLEGAL_AES_KEY;
         }
 
         $aesKey = base64_decode($sessionKey);
 
         if (strlen($iv) != 24) {
-            return WeAppErrorCode::$illegalIv;
+            return WeAppErrorCode::ILLEGAL_IV;
         }
 
         $aesIV = base64_decode($iv);
@@ -103,15 +105,15 @@ class WeAppProvider
         $dataObj = json_decode($result);
 
         if($dataObj == NULL) {
-            return WeAppErrorCode::$illegalBuffer;
+            return WeAppErrorCode::ILLEGAL_BUFFER;
         }
 
         if($dataObj->watermark->appid != $this->appId) {
-            return WeAppErrorCode::$illegalBuffer;
+            return WeAppErrorCode::ILLEGAL_BUFFER;
         }
 
         $data = $result;
 
-        return WeAppErrorCode::$ok;
+        return WeAppErrorCode::OK;
     }
 }

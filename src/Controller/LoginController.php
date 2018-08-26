@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Controller\BaseController;
+use Common\ArrayToolkit;
 
 class LoginController extends BaseController
 {
@@ -25,7 +26,30 @@ class LoginController extends BaseController
 
     public function bind($request, $response, $args)
     {
-        //to do refactor see bind_refactor.txt
+        $fields = $request->getParsedBody();
+
+        $openId = $this->getWeAppProvider()->decryptOpenId($fields['thirdKey']);
+
+        $sessionKey = $this->getRedis()->get('third_openid_'.$openId);
+
+        $result = $this->getWeAppProvider()->decryptData($fields['encryptedData'], $fields['iv'], $fields['data'], $sessionKey);
+
+        if ($result) {
+            return $response->withJson($this->createFailResponse([
+                $this->getWeAppProvider()->getErrorMsg($result),
+                $result,
+            ]));
+        }
+
+        $user = $this->getUserSerivce()->getUserByOpenId($openId);
+
+        if (empty($user))) {
+            $user = $this->getUserSerivce()->createUser($data);   
+        } else {
+            !ArrayToolkit::same(ArrayToolkit::parts($user, ['createdTime', 'updatedTime'])) && $user = $this->getUserSerivce()->updateUser($user['id'], $fields);
+        }
+
+        return $response->withJson($this->createSuccessResponse($user));
     }
 
     protected function getUserSerivce()
