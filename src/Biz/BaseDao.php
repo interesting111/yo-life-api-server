@@ -18,7 +18,7 @@ abstract class BaseDao
         return $this->table;
     }
 
-    public function insert($fields)
+    public function create($fields)
     {
         $index = array_keys($fields);
 

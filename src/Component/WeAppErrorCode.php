@@ -12,9 +12,31 @@
  */
  class WeAppErrorCode
  {
-    public static $ok = 0;
-    public static $illegalAesKey = -41001;
-    public static $illegalIv = -41002;
-    public static $illegalBuffer = -41003;
-    public static $decodeBase64Error = -41004;
+    const OK = 0;
+
+    const ILLEGAL_AES_KEY = -41001;
+
+    const ILLEGAL_IV = -41002;
+
+    const ILLEGAL_BUFFER = -41004;
+
+    const DECODE_BASE64_ERROR = -41005;
+
+    public function getErrorMsg($code)
+    {
+        switch ($code) {
+            case self::ILLEGAL_AES_KEY:
+                'encodingAesKey 非法';
+                break;
+            case self::ILLEGAL_IV:
+                'iv 非法';
+                break;
+            case self::ILLEGAL_BUFFER:
+                'buffer 非法';
+                 break;
+            case self::DECODE_BASE64_ERROR:
+                'base64 解密失败'
+                break;
+        }
+    }
  }

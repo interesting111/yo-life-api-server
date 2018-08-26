@@ -4,11 +4,19 @@ namespace Biz\User\Service\Impl;
 
 use Biz\User\Service\UserService; 
 use Biz\BaseService;
+use Common\ArrayToolkit;
 
 class UserServiceImpl extends BaseService implements UserService
 {
     public function createUser($fields)
     {
+        if (!ArrayToolkit::requireds($fields, ['openId', 'nickname', 'gender', 'city', 'province', 'country', 'avatarUrl', 'unionId'])) {
+            throw new \Exception('missing fields');
+        }
+
+        $fields['createdTime'] = time();
+        $fields['updatedTime'] = time();
+
         return $this->getUserDao()->create($fields);
     }
 
@@ -37,6 +45,10 @@ class UserServiceImpl extends BaseService implements UserService
 
     public function updateUser($id, $fields)
     {
+        $fields = ArrayToolkit::parts($fields, ['openId', 'nickname', 'gender', 'city', 'province', 'country', 'avatarUrl', 'unionId']);
+
+        $fields['updatedTime'] = time();
+
         return $this->getUserDao()->update($id, $fields);
     }
 
