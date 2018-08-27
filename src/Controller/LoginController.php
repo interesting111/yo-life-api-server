@@ -4,6 +4,7 @@ namespace Controller;
 
 use Controller\BaseController;
 use Common\ArrayToolkit;
+use Component\WeAppErrorCode;
 
 class LoginController extends BaseController
 {
@@ -36,8 +37,8 @@ class LoginController extends BaseController
 
         if ($result) {
             return $response->withJson($this->createFailResponse([
-                $this->getWeAppProvider()->getErrorMsg($result),
                 $result,
+                WeAppErrorCode::getErrorMsg($result),
             ]));
         }
 

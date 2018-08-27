@@ -22,7 +22,7 @@
 
     const DECODE_BASE64_ERROR = -41005;
 
-    public function getErrorMsg($code)
+    public static function getErrorMsg($code)
     {
         switch ($code) {
             case self::ILLEGAL_AES_KEY:
