@@ -37,8 +37,8 @@ class LoginController extends BaseController
 
         if ($result) {
             return $response->withJson($this->createFailResponse([
-                WeAppErrorCode::getErrorMsg($result),
                 $result,
+                WeAppErrorCode::getErrorMsg($result),
             ]));
         }
 

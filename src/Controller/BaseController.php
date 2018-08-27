@@ -26,11 +26,11 @@ class BaseController
         );
     }
 
-    protected function createFailResponse($data, $code = 500)
+    protected function createFailResponse($code = 500, $msg = '')
     {
         return array(
             'code' => $code,
-            'data' => $data,
+            'msg' => $msg,
         );
     }
 
