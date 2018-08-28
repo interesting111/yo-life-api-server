@@ -7,7 +7,7 @@ define('APP_ROOT', dirname(__DIR__));
 $config = [
     'displayErrorDetails' => true,
     'db' => [
-        'driver' => 'PDO_DRIVER', //pdo_mysql
+        'driver' => 'PDO_DRIVER',
         'host' => 'YOUR_HOST',
         'port' => YOUT_PORT,
         'user' => 'YOUR_DB_USER',
