@@ -36,15 +36,15 @@ class LoginController extends BaseController
         $result = $this->getWeAppProvider()->decryptData($fields['encryptedData'], $fields['iv'], $fields['data'], $sessionKey);
 
         if ($result) {
-            return $response->withJson($this->createFailResponse([
+            return $response->withJson($this->createFailResponse(
                 $result,
-                WeAppErrorCode::getErrorMsg($result),
-            ]));
+                WeAppErrorCode::getErrorMsg($result)
+            ));
         }
 
         $user = $this->getUserSerivce()->getUserByOpenId($openId);
 
-        if (empty($user))) {
+        if (empty($user)) {
             $user = $this->getUserSerivce()->createUser($data);   
         } else {
             !ArrayToolkit::same(ArrayToolkit::parts($user, ['createdTime', 'updatedTime'])) && $user = $this->getUserSerivce()->updateUser($user['id'], $fields);
